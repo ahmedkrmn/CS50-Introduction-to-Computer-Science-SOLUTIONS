@@ -11,12 +11,13 @@ int main(void)
         x1 = get_float();
     }
     x1*=100;
-
+//This code block is used to overcome the percision innacuracy of floats, if input is 4.2 it might be saved as 4.199999999999
+/////////////////////////////
     float y = x1-(int)x1;
     int x;
     if(y>0.1) x = (int) x1+1;
     else x = (int) x1;
-
+/////////////////////////////
     int counter = 0;
     while(x>0)
     {
