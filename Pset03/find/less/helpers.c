@@ -22,6 +22,7 @@ void swap(int *a,int *b)
  */
 bool search(int value, int values[], int n)
 {
+    if(n<0) return false;
     int start = 0 ,end = n-1;
     while(start<=end)
     {
