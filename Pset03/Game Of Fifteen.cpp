@@ -23,11 +23,6 @@
 #define DIM_MIN 3
 #define DIM_MAX 9
 
-// board
-int board[DIM_MAX][DIM_MAX];
-
-// dimensions
-int d;
 
 // prototypes
 void clear(void);
@@ -46,6 +41,10 @@ int main(int argc, string argv[])
         printf("Usage: fifteen d\n");
         return 1;
     }
+    
+
+    // dimensions
+    int d;
 
     // ensure valid dimensions
     d = atoi(argv[1]);
@@ -66,8 +65,9 @@ int main(int argc, string argv[])
     // greet user with instructions
     greet();
 
-    // create the 2d board
+    // board
     int board[d][d];
+
 
     // initialize the board
     init(d,board);
@@ -192,7 +192,7 @@ void draw(const int d , int board[][d])
             if(board[r][c])
             printf("%2d ",board[r][c]);
             else
-            printf(" _ ");
+            printf("   ");
         }
         printf("\n");
     }
@@ -210,16 +210,16 @@ bool IsInBoard(int r , int c , int d)
 }
 int tileIndex (int tile , const int d , int board[][d])
 {
-    int counter =0;
+    int TD =0;
     for(int r = 0 ; r < d ; r++)
     {
         for(int c = 0 ; c < d ; c++)
         {
-            counter++;
-            if(board[r][c]==tile) return counter;
+            TD++;
+            if(board[r][c]==tile) return TD;
         }
     }
-    return counter;
+    return TD;
 }
 bool move(int tile , const int d , int board[][d])
 {
