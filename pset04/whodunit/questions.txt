@@ -1,0 +1,11 @@
+1.  stdin.h is a library containing micros defining datatypes with specific sizes, it is mainly used in hardware coding where using the precise number of bits for the data type is crucial
+
+4.  BM
+5.  bi size is the size of BITMAPINFOHEADER while bf size is the size of the bitmap file itself
+6.  it means that the BMP starts form bottom to top
+7.  biBitCount
+8.  line 24 if it couldn't open the input file and 32 if it can't open the output file
+9.  because the third argument defines who much u need of this data type - struct in our case - which will always be one
+10. 3
+11. skips a number of steps starting from the reference point in the file
+12. it is a type of reference which denotes the current position
