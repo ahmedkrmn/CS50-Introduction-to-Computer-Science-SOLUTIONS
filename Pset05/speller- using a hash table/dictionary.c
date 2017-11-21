@@ -75,21 +75,28 @@ bool load(const char *dictionary)
     while( fscanf(open_dir , "%s" , word) != EOF)
     {
         int index = hash_function(word);
-        if(dic[index]==NULL)
-        {
-            node *new = malloc(1*sizeof(node));
-            new->_word = word;
-            new->next = NULL;
-            dic[index]= new;
-        }
-        else
-        {
-            node *add = malloc(1*sizeof(node));
-            add->_word = word;
-            add->next = dic[index];
-            dic[index]= add;
-        }
+                
+//         if(dic[index]==NULL)
+//         {
+//             node *new = malloc(1*sizeof(node));
+//             new->_word = word;
+//             new->next = NULL;
+//             dic[index]= new;
+//         }
+//         else
+//         {
+//             node *add = malloc(1*sizeof(node));
+//             add->_word = word;
+//             add->next = dic[index];
+//             dic[index]= add;
+//         }
 
+        // Which is the same as : 
+        node *add = malloc (1*sizeof(node));
+        add -> _word = word;
+        add -> next = dic[index];
+        dic[index] = add;
+        
         word = malloc(50*sizeof(char));
     }
     free (word); //the last word which will be an EOF.
@@ -113,6 +120,15 @@ unsigned int size(void)
             counter++;
             ptr = ptr->next;
         }
+        
+//       Or alternatively
+        
+//       node *ptr = dic[i];
+//       while(ptr!=NULL)
+//       {
+//           counter++;
+//           ptr = ptr->next;
+//       }
     }
     return counter;
 }
